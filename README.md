@@ -25,8 +25,8 @@ a fake file input and destroying it after use), there's a
 The ajax wrapper I use is a modified thousand year
 [old wrapper](http://www.quirksmode.org/js/xmlhttp.html) from PPK's
 quirksmode. The _setRequestHeader_ part is pretty important, please
-[check it out](./public/utils/ajax.js). I'm not setting the content type,
-because this way the browser will change it to `multipart/form-data`
+[check it out](./public/utils/ajax.js). I'm not setting the content type
+for FormData, because this way the browser will change it to `multipart/form-data`
 and _add boundary automatically_ (more [here](https://github.com/axios/axios/issues/318)).
 
 If you want to use the FormData upload with jQuery, here is an
