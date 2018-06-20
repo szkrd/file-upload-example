@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang=en>
+<head>
+  <meta charset=utf-8>
+  <title>file upload example</title>
+  <script src="polyfills/bluebird.min.js"></script>
+  <script src="utils/ajax.js"></script>
+  <script src="utils/file-dialog.js"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <p>
+    <button id="btn-1">Upload CSV</button>
+    <label for="btn-1">FormData (ie10+)</label>
+  </p>
+
+  <p>
+    <button id="btn-2">Upload CSV</button>
+    <label for="btn-2">FileReader API (ie10+)</label>
+  </p>
+
+  <p>
+    <button id="btn-reset">Reset</button>
+  </p>
+
+  <hr>
+
+  <h2>Metadata</h2>
+  <pre id="metadata"></pre>
+
+  <h2>Immediate result (for filereader)</h2>
+  <pre id="result"></pre>
+
+  <h2>Server response</h2>
+  <pre id="response"></pre>
+
+  <script src="app.js"></script>
+</body>
+</html>

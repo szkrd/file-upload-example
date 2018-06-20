@@ -1,4 +1,6 @@
 // see also: https://github.com/alnorris/file-dialog
+// creates a dummy file input, triggers the onchange
+// and in the end throws the input away
 (function (global) {
   'use strict';
 
@@ -13,24 +15,25 @@
     }
     input.setAttribute('type', 'file');
 
-    // for IE this is needed!
-    $(input).attr('id', 'hidden-file'); // !!
-    $(input).appendTo(document.body); // !!
+    input.style.display = 'none';
+    input.setAttribute('id', 'hidden-file');
+    document.body.appendChild(input);
 
-    // Return promise/callvack
+    // Return promise/callback
     return new Promise(function (resolve, reject) {
       input.addEventListener('change', function (e) {
           resolve(input.files);
           var lastArg = args[args.length - 1];
           if (typeof lastArg === "function") lastArg(input.files);
-      })
+      });
 
       // Simluate click event
       var evt = document.createEvent('MouseEvents');
       evt.initMouseEvent('click', true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
       input.dispatchEvent(evt);
-      $(input).remove(); // !!
+
+      document.body.removeChild(input);
     })
-  }
+  };
   global.fileDialog = fileDialog;
 })(this);

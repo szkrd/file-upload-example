@@ -1,0 +1,20 @@
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+}
+
+button {
+  width: 120px;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+pre {
+  border: 1px dotted silver;
+  padding: 5px;
+  max-height: 100px;
+  overflow-y: auto;
+}

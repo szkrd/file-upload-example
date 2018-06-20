@@ -1,20 +1,20 @@
 {
   "name": "file-upload-example",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "file upload example that works on legacy browsers",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ."
   },
   "author": "Szabolcs Kurdi <szabolcs.kurdi@gmail.com> (https://github.com/szkrd)",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "async-busboy": "0.3.4",
-    "koa": "1.4.0",
-    "koa-body": "1.6.0",
-    "koa-multer": "0.0.2",
-    "koa-static": "3.0.0",
-    "koa-static-folder": "0.1.6",
     "nodemon": "1.11.0"
+  },
+  "dependencies": {
+    "body-parser": "1.18.3",
+    "csv": "3.1.0",
+    "express": "4.16.3",
+    "multer": "1.3.0"
   }
 }
