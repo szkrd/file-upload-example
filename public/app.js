@@ -5,21 +5,21 @@ document.addEventListener('DOMContentLoaded', function(event) {
   }
 
   function resetFields () {
-    $('response').textContent = $('metadata').textContent = $('result').textContent = '';
+    $('response').value = $('metadata').value = $('result').value = '';
   }
 
   function dumpMetaData (file) {
     var text = JSON.stringify({name: file.name, size: file.size, type: file.type}, null, 2);
-    $('metadata').textContent = text;
+    $('metadata').value = text;
   }
 
   function dumpResponse (resp) {
     resp = typeof resp === 'string' ? resp : JSON.stringify(resp, null, 2);
-    $('response').textContent = resp;
+    $('response').value = resp;
   }
 
   function dumpImmediateResult (result) {
-    $('result').textContent = result;
+    $('result').value = result;
   }
 
   // ----
