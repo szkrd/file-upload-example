@@ -1,3 +1,4 @@
+const chalk = require('chalk');
 const csv = require('csv');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -33,7 +34,11 @@ const parseCsv = (text) => new Promise((resolve, reject) => {
 // ----
 
 app.post('/upload-filereader', asyncMiddleware(async (req, res) => {
-  console.info('filereader upload POST', req.body);
+  console.info(
+    chalk.cyan('filereader upload POST\n'),
+    chalk.yellow('content type:'), req.headers['content-type'], '\n',
+    chalk.yellow('body:'), req.body
+  );
   result = await parseCsv(req.body.csv);
   res.json(result);
 }));
@@ -41,7 +46,12 @@ app.post('/upload-filereader', asyncMiddleware(async (req, res) => {
 app.post('/upload-formdata', upload.single('file'), asyncMiddleware(async (req, res) => {
   // req.body holds some metadata (see data.append in the client)
   // req.file is metadata and the raw buffer
-  console.info('formdata upload POST', req.body, req.file);
+  console.info(
+    chalk.cyan('formdata upload POST\n'),
+    chalk.yellow('content type:'), req.headers['content-type'], '\n',
+    chalk.yellow('body:'), req.body, '\n',
+    chalk.yellow('file:'), req.file
+  );
   result = await parseCsv(req.file.buffer.toString());
   res.json(result);
 }));
